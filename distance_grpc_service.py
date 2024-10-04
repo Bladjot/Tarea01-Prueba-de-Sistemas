@@ -27,7 +27,8 @@ class DistanceServicer(pb2_grpc.DistanceServiceServicer):
                 response_map = {"distance": distance, "method": "geodesic", "unit": str(request.unit)}
             except ValueError:
                 response_map = {"distance": float(-1), "method": "geodesic", "unit": "invalid"}
-        # by default, if no unit is provided, distance is returned in unit = km
+        
+
         if request.unit == "":
             try:
                 distance = Distance(

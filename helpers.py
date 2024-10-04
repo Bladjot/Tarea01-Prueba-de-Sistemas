@@ -1,4 +1,3 @@
-# module name: helpers.py
 import geopy.distance
 
 

@@ -18,7 +18,7 @@ class TestGeodesicDistance(unittest.TestCase):
             unit="km"
         )
         response = self.stub.geodesic_distance(message)
-        expected_distance = 100  # distancia aproximada desde Google Earth
+        expected_distance = 100  # distancia aproximada desde el Google Earth
         self.assertAlmostEqual(response.distance, expected_distance, delta=0.1)
         self.assertEqual(response.unit, "km")
 
@@ -56,10 +56,10 @@ class TestGeodesicDistance(unittest.TestCase):
         message = pb2.SourceDest(
             source=pb2.Position(latitude=-33.0348, longitude=-70.5956),
             destination=pb2.Position(latitude=-33.0348, longitude=-71.5980),
-            unit=""  # Empty unit, should default to km
+            unit=""
         )
         response = self.stub.geodesic_distance(message)
-        expected_distance = 100  # distancia aproximada
+        expected_distance = 100 
         self.assertAlmostEqual(response.distance, expected_distance, delta=0.1)
         self.assertEqual(response.unit, "km")
 

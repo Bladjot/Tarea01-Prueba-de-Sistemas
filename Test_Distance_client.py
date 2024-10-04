@@ -39,8 +39,6 @@ class TestCliente(unittest.TestCase):
         del cls.unidad_nm
         del cls.unidad_invalida
         del cls.menos_uno
-
-    # Caso de prueba para latitud menor a -90 (inválida)
     def test_latitud_menor_90_negativo(self):
         with patch("builtins.print") as mocked_print:
             distance_client.main(
@@ -51,7 +49,6 @@ class TestCliente(unittest.TestCase):
             mocked_print.assert_any_call("Distance:", self.menos_uno)
             mocked_print.assert_any_call("Distance unit:", self.unidad_invalida)
 
-    # Caso de prueba para latitud mayor a 90 (inválida)
     def test_latitud_mayor_90(self):
         with patch("builtins.print") as mocked_print:
             distance_client.main(
@@ -62,7 +59,6 @@ class TestCliente(unittest.TestCase):
             mocked_print.assert_any_call("Distance:", self.menos_uno)
             mocked_print.assert_any_call("Distance unit:", self.unidad_invalida)
 
-    # Caso de prueba para longitud menor a -180 (inválida)
     def test_longitud_menor_180_negativo(self):
         with patch("builtins.print") as mocked_print:
             distance_client.main(
@@ -73,7 +69,6 @@ class TestCliente(unittest.TestCase):
             mocked_print.assert_any_call("Distance:", self.menos_uno)
             mocked_print.assert_any_call("Distance unit:", self.unidad_invalida)
 
-    # Caso de prueba para longitud mayor a 180 (inválida)
     def test_longitud_mayor_180(self):
         with patch("builtins.print") as mocked_print:
             distance_client.main(
@@ -84,24 +79,22 @@ class TestCliente(unittest.TestCase):
             mocked_print.assert_any_call("Distance:", self.menos_uno)
             mocked_print.assert_any_call("Distance unit:", self.unidad_invalida)
 
-    # Caso de prueba para unidad de medida inválida
     def test_unidad_invalida(self):
         with patch("builtins.print") as mocked_print:
             distance_client.main(
                 source=(self.latitud_valida, self.longitud_valida),
                 destination=(self.latitud_valida, self.longitud_valida),
-                unit="miles",  # Unidad inválida
+                unit="miles",
             )
             mocked_print.assert_any_call("Distance:", self.menos_uno)
             mocked_print.assert_any_call("Distance unit:", self.unidad_invalida)
 
-    # Caso de prueba para unidad de medida vacía (debería retornar en kilómetros por defecto)
     def test_unidad_vacia(self):
         with patch("builtins.print") as mocked_print:
             distance_client.main(
                 source=(self.latitud_valida, self.longitud_valida),
                 destination=(self.latitud_valida, self.longitud_valida),
-                unit=self.unidad_vacia,  # Unidad vacía
+                unit=self.unidad_vacia,
             )
             mocked_print.assert_any_call("Distance unit:", "km")
 
