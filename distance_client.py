@@ -20,7 +20,6 @@ def main(source, destination, unit):
 
         print(f"Message sent:\n{MessageToJson(message)}\n")
 
-        # Llamada al método remoto
         response = stub.geodesic_distance(message)
 
         try:
@@ -32,7 +31,6 @@ def main(source, destination, unit):
             print("One or more keys are missing!")
 
 if __name__ == "__main__":
-    # Ejemplo de llamada a la función main para pruebas manuales
     main(
         source=(-33.0351516, -70.5955963),
         destination=(-33.0348327, -71.5980458),

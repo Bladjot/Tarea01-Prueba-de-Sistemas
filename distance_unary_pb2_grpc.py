@@ -42,8 +42,6 @@ def add_DistanceServiceServicer_to_server(servicer, server):
             'DistanceService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
-
- # This class is part of an EXPERIMENTAL API.
 class DistanceService(object):
     """Missing associated documentation comment in .proto file."""
 
